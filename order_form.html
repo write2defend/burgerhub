@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Order Form</title>
+ <link rel="stylesheet" type="text/css" href="burger_hub.css">
+  <link href="https://fonts.googleapis.com/css2?family=Chewy&family=Poppins:wght@400;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+  <!---  Site Logo --->
+    <a href="burger_hub.html"><img src="restaurant_logo.png" alt="sitelogo" class="logo">
+    </a>
+    
+  <!--- Navigation Bar ---> 
+    <nav id="top_nav">
+      <a href="index.html">Home</a>
+      <a href="order_form.html">Order</a>
+      <a href="/#about-us">About Us</a>
+    </nav>
+  </header>
+  
+  <h1>Order Form</h1>
+  <p>Interested in trying out our smoke-grilled burgers? Fill in the form below to place your order with us!</p>
+  <form  mehod="POST" id="order_form" onsubmit="return submitForm()">
+    <div class="form-group">
+      <label for="fname">First Name</label>
+      <input type="text" name="fname" id="fname" required placeholder="first name">
+      <label for="lname">Last Name</label>
+      <input type="text" name="lname" id="lname" required placeholder="last name" >
+      <label for="phone">Phone Number</label>
+      <input type="tel" name="phone" id="phone" required placeholder="phone number">
+    </div>
+    
+    <div class="form-group">
+      <p>What's Your Location?</p>
+      <label for="jhb">Johannesburg</label>
+      <input type="radio" name="location" id="Jhb">
+      <label for="cpt">Cape Town</label>
+      <input type="radio" name="location" id="cpt">
+      <label for="dbn">Durban</label>
+      <input type="radio" name="location" id="dbn">
+      <p>Provide Your Full Address:</p>
+      <label for="street-address">Street Address:</label>
+      <input type="text" name="location " id="street-address" placeholder="e.g 54 Rosewood street">
+      <label for="surburb">Surburb:</label>
+      <input type="text" name="location " id="surburb" required placeholder="e.g Soweto">
+        <label for="postal-code">Postal Code</label>
+      <input type="number" name="location " id="postal-code" required placeholder="e.g 2001">
+    </div>
+    
+    <div class="form-group">
+      <p> Select your burger type:</p>
+      <label for="beef">Beef</label>
+      <input type="checkbox" name="burger-type" id="beef">
+      <label for="chicken">Chicken</label>
+      <input type="checkbox" name="burger-type" id="chicken">
+      <label for="veggie">Veggie</label>
+      <input type="checkbox" name="burger-type" id="veggie">
+      
+      <p>Meal Type:</p>
+      <label for="food-meal">Family Pack (6+)</label>
+      <input type="radio" name="food" id="food-meal">
+      <label for="food-single">Single Meal</label>
+      <input type="radio" name="food" id="food-single">
+      
+      <!--- Burgers from Menu --->
+      <p>Choose Your Burger/s</p>
+      <label for=sides-select>Please Select your burger/s:</label>
+      <select id="burger-select" name="burger" multiple>
+        <optgroup label="Beef Burgers">
+          <option value="beef burger">R80</option>
+          <option value="beef burger">R85</option>
+          <option value="beef burger">R90</option>
+          <option value="beef burger">R120</option>
+          <option value="beef burger">R120</option>
+        </optgroup>
+        <optgroup label="Chicken Burgers">
+          <option value="chicken burger">R75</option>
+          <option value="chicken burger">R120</option>
+          <option value="chicken burger">R180</option>
+          <option value="chicken burger">R180</option>
+          <option value="chicekn burger">R290</option>
+        </optgroup>
+        <optgroup label="Veggie Burgers">
+          <option value="veggie burger">R60</option>
+          <option value="veggie burger">R100</option>
+        </optgroup>
+      </select>
+      
+      <!--- Sides Customers Can Add to Their Order --->
+      <p>Choose Your Sides:</p>
+      <label for=sides-select>Please choose your sides:</label>
+      <select id="sides-select" name="sides" multiple>
+        <optgroup label="Chips">
+          <option value="chips">Small</option>
+          <option value="chips">Medium</option>
+          <option value="chips">Large</option>
+        </optgroup>
+      <optgroup label="Extra Cheese">
+        <option value="extracheese">Extra Cheese</option>
+      </optgroup>
+      <optgroup label="Salad">
+        <option value="salad">Coleslaw</option>
+        <option value="salad">Greek Salad</option>
+      </optgroup>
+      <optgroup label="Extra Sauces"></optgroup>
+        <option value="extrasauces">BBQ Sauce</option>
+        <option value="extrasauces">Chicken Sauce</option>
+        <option value="extrasauces">Veggie Sauce</option>
+        </optgroup>
+      </select>
+      </div>
+      
+      <!---- Available Drinks ---->
+      <p> Select your desired drink:</p>
+      <label for="coke">500ml Coke</label>
+      <input type="checkbox" name="drink" id="coke">
+      <label for="powerade">Powerade</label>
+      <input type="checkbox" name="drink" id="powerade">
+      <label for="engerade">Engerade</label>
+      <input type="checkbox" name="drink" id="energade">
+      <label for="soda">Soda</label>
+      <input type="checkbox" name="drink" id="soda">
+      
+      <!--- Textarea for Extra Information --->
+      <label for="message">Anything Else to Add?</label>
+      <div id="textarea-wrapper">
+      <textarea name="message" id="message" maxlength="300" placeholder="Anything else? Special Requests?"></textarea>
+         <span id="characterCount">0/300 Characters</span>
+      </div>
+      <button type="submit" id="submit">Submit Your Order</button>
+    </form>
+      <!--- Simulation Messages Appearinh after order is placed--->
+    <div id="sending-order">Sending Your Order...</div>
+    <div id="order-received">Order Received!</div>
+  
+  <!--- Footer Content --->
+    <footer id="footer">
+      <p>&copy; 2025 Beef'd Up Mzansi | All Rights Reserved.</p>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>
